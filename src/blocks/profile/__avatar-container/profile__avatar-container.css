@@ -1,0 +1,8 @@
+.profile__avatar-container {
+  width: 120px;
+  height: 120px;
+  background: url(../../../images/avatar-pencil.svg) center / 26px 26px
+    no-repeat;
+  overflow: hidden;
+  border-radius: 50%;
+}

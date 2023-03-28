@@ -1,0 +1,29 @@
+.profile__title-container {
+  display: flex;
+  max-width: 390px;
+  gap: 14px;
+  margin: 0;
+  padding: 0;
+  align-items: baseline;
+}
+@media screen and (max-width: 806px) {
+  .profile__title-container {
+    max-width: 100%;
+    margin: 0 auto;
+    gap: 7px;
+    position: relative;
+    justify-content: center;
+    box-sizing: border-box;
+  }
+}
+
+@media screen and (max-width: 568px) {
+  .profile__title-container {
+    max-width: 282px;
+    margin: 0 auto;
+    gap: 7px;
+    position: relative;
+    justify-content: center;
+    box-sizing: border-box;
+  }
+}
