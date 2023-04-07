@@ -1,6 +1,7 @@
 import logo from "../images/logo.svg";
+import { Link, Routes, Route } from 'react-router-dom';
+function Header({ userEmail, onSignOut }) {
 
-function Header() {
   return (
     <header className="header">
       <div className="header__container">
@@ -9,6 +10,35 @@ function Header() {
           alt="Логотип сервиса 'Место'"
           className="header__logo"
         />
+          <Routes>
+              <Route
+                  path='/sign-up'
+                  element={
+                      <Link to="/sign-in"
+                            className="header__link"> Войти
+                      </Link>}
+              />
+              <Route
+                  path='/sign-in'
+                  element={
+                      <Link to="/sign-up"
+                            className="header__link"> Регистрация
+                      </Link>}
+              />
+              <Route path="/" element={
+                  <>
+                      <div className="header__auth">
+                          <p className="header__email">
+                              {userEmail}
+                          </p>
+                          <button className="header__button-sign-out"
+                                  onClick={() => onSignOut()}>
+                              Выйти
+                          </button>
+                      </div>
+                  </>
+              } />
+          </Routes>
       </div>
     </header>
   );

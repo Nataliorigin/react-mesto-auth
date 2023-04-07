@@ -1,0 +1,18 @@
+.auth__link {
+    display: block;
+    text-align: center;
+    color: #ffffff;
+    min-height: 17px;
+    font-family: "Inter", Arial, sans-serif;
+    font-size: 14px;
+    line-height: 17px;
+    margin: 15px 0 0;
+    padding: 0;
+    text-decoration: none;
+    transition: 0.8s ease;
+}
+
+.auth__auth__link:hover {
+    cursor: pointer;
+    opacity: 0.6;
+}

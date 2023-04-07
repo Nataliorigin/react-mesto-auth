@@ -1,25 +1,22 @@
+import { handleCheckResponse } from './utils';
 class Api {
   constructor({ url, headers }) {
     this._url = url;
     this._headers = headers;
   }
 
-  _handleCheckResponse(res) {
-    return res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`);
-  }
-
   getUserInfo = () => {
     //Получить данные о пользователе
     return fetch(`${this._url}users/me`, {
       headers: this._headers,
-    }).then((res) => this._handleCheckResponse(res));
+    }).then((res) => handleCheckResponse(res));
   };
 
   getCardList = () => {
     //Получить карточки
     return fetch(`${this._url}cards`, {
       headers: this._headers,
-    }).then((res) => this._handleCheckResponse(res));
+    }).then((res) => handleCheckResponse(res));
   };
 
   setUserInfo = (data) => {
@@ -31,7 +28,7 @@ class Api {
         name: data.name,
         about: data.about,
       }),
-    }).then((res) => this._handleCheckResponse(res));
+    }).then((res) => handleCheckResponse(res));
   };
 
   setCard = (data) => {
@@ -43,7 +40,7 @@ class Api {
         name: data.name,
         link: data.link,
       }),
-    }).then((res) => this._handleCheckResponse(res));
+    }).then((res) => handleCheckResponse(res));
   };
 
   deleteCard = (cardId) => {
@@ -51,7 +48,7 @@ class Api {
     return fetch(`${this._url}cards/${cardId}`, {
       method: "DELETE",
       headers: this._headers,
-    }).then((res) => this._handleCheckResponse(res));
+    }).then((res) => handleCheckResponse(res));
   };
 
   changeLikeCardStatus = (cardId, isLiked) => {
@@ -60,7 +57,7 @@ class Api {
     return fetch(`${this._url}cards/likes/${cardId}`, {
       method: isLiked ? "PUT" : "DELETE",
       headers: this._headers,
-    }).then((res) => this._handleCheckResponse(res));
+    }).then((res) => handleCheckResponse(res));
   };
 
   setUserAvatar = (avatar) => {
@@ -71,7 +68,7 @@ class Api {
       body: JSON.stringify({
         avatar: avatar.avatar,
       }),
-    }).then((res) => this._handleCheckResponse(res));
+    }).then((res) => handleCheckResponse(res));
   };
 }
 

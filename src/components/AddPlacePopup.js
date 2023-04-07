@@ -11,6 +11,7 @@ function AddPlacePopup({ isOpen, onClose, onAddPlace, isLoading }) {
     isFormValid,
     setIsFormValid,
   } = useValidation();
+
   useEffect(() => {
     resetValidation();
     setIsFormValid(false);

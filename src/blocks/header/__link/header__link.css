@@ -1,0 +1,16 @@
+.header__link {
+    font-family: "Inter", Arial, sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    color: #FFFFFF;
+    padding: 0;
+    text-decoration: none;
+}
+
+@media screen and (max-width: 648px) {
+    .header__link {
+        font-size: 14px;
+        line-height: 17px;
+    }
+}
