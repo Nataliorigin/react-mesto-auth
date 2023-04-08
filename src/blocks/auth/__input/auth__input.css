@@ -1,22 +1,20 @@
 .auth__input {
-    display: block;
-    font-family: "Inter", Arial, sans-serif;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 17px;
-    color: #CCCCCC;
-    background-color: transparent;
-    border: none;
-    border-bottom: 2px solid #CCCCCC;
-    width: 358px;
-    margin: 0;
-    padding: 0 0 13px;
+  display: block;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: #cccccc;
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid #cccccc;
+  width: 358px;
+  margin: 0;
+  padding: 0 0 13px;
 }
 
 @media screen and (max-width: 648px) {
-    .auth__input {
-        margin: 0 auto;
-        width: 260px;
-
-    }
+  .auth__input {
+    margin: 0 auto;
+    width: 260px;
+  }
 }

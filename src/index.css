@@ -62,7 +62,6 @@
 @import url(blocks/form/__input-error/_active/form__input-error_active.css);
 @import url(blocks/form/__input/_type/_error/form__input_type_error.css);
 /*auth*/
-/*auth */
 @import url(blocks/auth/auth.css);
 @import url(blocks/auth/__title/auth__title.css);
 @import url(blocks/auth/__form/auth__form.css);
@@ -70,3 +69,6 @@
 @import url(blocks/auth/__button/auth-button.css);
 @import url(blocks/auth/__link/auth__link.css);
 @import url(blocks/auth/__error/auth__error.css);
+/*preloader*/
+@import "blocks/preloader/preloader.css";
+@import "blocks/preloader/_active/preloader_active.css";

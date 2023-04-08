@@ -1,37 +1,36 @@
-import { handleCheckResponse } from './utils';
+import { handleCheckResponse } from "./utils";
 
-export const BASE_URL = 'https://auth.nomoreparties.co';
+export const BASE_URL = "https://auth.nomoreparties.co";
 
-const headers = {
-    'Accept': 'application/json',
-    'Content-Type': 'application/json',
-};
+function makeRequest(url, method, body, token) {
+  const headers = {
+    Accept: "application/json",
+    "Content-Type": "application/json",
+  };
+  if (token !== undefined) {
+    headers["Authorization"] = `Bearer ${token}`;
+  }
+
+  const config = {
+    method,
+    headers,
+  };
+  if (body !== undefined) {
+    config.body = JSON.stringify(body);
+  }
+  return fetch(`${BASE_URL}${url}`, config).then((res) =>
+    handleCheckResponse(res)
+  );
+}
 
 export const registerSignUp = ({ email, password }) => {
-    return fetch(`${BASE_URL}/signup`, {
-        method: 'POST',
-        headers,
-        body: JSON.stringify({ email, password }),
-    })
-        .then((res) => handleCheckResponse(res));
+  return makeRequest("/signup", "POST", { email, password });
 };
 
 export const authorizeSignIn = ({ email, password }) => {
-    return fetch(`${BASE_URL}/signin`, {
-        method: 'POST',
-        headers,
-        body: JSON.stringify({ email, password }),
-    })
-        .then((res) => handleCheckResponse(res));
+  return makeRequest("/signin", "POST", { email, password });
 };
 
 export const getContent = (token) => {
-    return fetch(`${BASE_URL}/users/me`, {
-        method: 'GET',
-        headers: {
-            ...headers,
-            'Authorization': `Bearer ${token}`,
-        },
-    })
-        .then((res) => handleCheckResponse(res));
+  return makeRequest("/users/me", "GET", undefined, token);
 };

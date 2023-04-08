@@ -1,4 +1,4 @@
-import { handleCheckResponse } from './utils';
+import { handleCheckResponse } from "./utils";
 class Api {
   constructor({ url, headers }) {
     this._url = url;
