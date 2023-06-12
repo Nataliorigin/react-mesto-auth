@@ -16,6 +16,7 @@ class Api {
     //Получить карточки
     return fetch(`${this._url}cards`, {
       headers: this._headers,
+      credentials: 'include',
     }).then((res) => handleCheckResponse(res));
   };
 
@@ -23,6 +24,7 @@ class Api {
     //Отправить новые данные пользователя
     return fetch(`${this._url}users/me`, {
       method: "PATCH",
+      credentials: 'include',
       headers: this._headers,
       body: JSON.stringify({
         name: data.name,
@@ -35,6 +37,7 @@ class Api {
     //Отправить новую карточку
     return fetch(`${this._url}cards`, {
       method: "POST",
+      credentials: 'include',
       headers: this._headers,
       body: JSON.stringify({
         name: data.name,
@@ -47,6 +50,7 @@ class Api {
     //Удалить карточку
     return fetch(`${this._url}cards/${cardId}`, {
       method: "DELETE",
+      credentials: 'include',
       headers: this._headers,
     }).then((res) => handleCheckResponse(res));
   };
@@ -56,6 +60,7 @@ class Api {
     //Постановка лайка
     return fetch(`${this._url}cards/likes/${cardId}`, {
       method: isLiked ? "PUT" : "DELETE",
+      credentials: 'include',
       headers: this._headers,
     }).then((res) => handleCheckResponse(res));
   };
@@ -64,6 +69,7 @@ class Api {
     //Отправить новый аватар
     return fetch(`${this._url}users/me/avatar`, {
       method: "PATCH",
+      credentials: 'include',
       headers: this._headers,
       body: JSON.stringify({
         avatar: avatar.avatar,
@@ -73,9 +79,8 @@ class Api {
 }
 
 const api = new Api({
-  url: "https://mesto.nomoreparties.co/v1/cohort-59/",
+  url: "https://api.nataliorigin.nomoredomains.rocks",
   headers: {
-    authorization: "7e9bec29-0c4a-4040-905f-685af73cf60c",
     "Content-Type": "application/json",
   },
 });

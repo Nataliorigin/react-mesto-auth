@@ -1,6 +1,6 @@
 import { handleCheckResponse } from "./utils";
 
-export const BASE_URL = "https://auth.nomoreparties.co";
+export const BASE_URL = "https://api.nataliorigin.nomoredomains.rocks";
 
 function makeRequest(url, method, body, token) {
   const headers = {
